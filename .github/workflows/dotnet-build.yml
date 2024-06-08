@@ -1,1 +1,50 @@
+name: Marcia's Workflow
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'  # Executa a cada hora
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Run a pre-existing GitHub action (e.g., Set up Node.js environment)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      # Run a custom script
+      - name: Run custom script
+        run: |
+          echo "Running custom script..."
+          # Coloque seu script personalizado aqui
+          node -e "console.log('Hello, world!')"
+
+  scheduled-task:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Run a pre-existing GitHub action (e.g., Set up Python environment)
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      # Run a custom script
+      - name: Run custom Python script
+        run: |
+          echo "Running scheduled task..."
+          # Coloque seu script personalizado aqui
+          python -c "print('Hello from scheduled task!')"
