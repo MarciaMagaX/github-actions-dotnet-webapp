@@ -25,7 +25,6 @@ jobs:
       - name: Run custom script
         run: |
           echo "Running custom script..."
-          # Coloque seu script personalizado aqui
           node -e "console.log('Hello, world!')"
 
   scheduled-task:
@@ -46,5 +45,4 @@ jobs:
       - name: Run custom Python script
         run: |
           echo "Running scheduled task..."
-          # Coloque seu script personalizado aqui
           python -c "print('Hello from scheduled task!')"
